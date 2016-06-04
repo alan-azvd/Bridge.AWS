@@ -11,7 +11,7 @@ assembly_info:
   assembly_informational_version: '{version}'
 
 artifacts:
-  - path: '**\*.nupkg'
+  - path: '**\Bridge.AWS*.nupkg'
 
 before_build:
   - cmd: nuget restore src/Bridge.AWS.sln
@@ -19,7 +19,7 @@ before_build:
 build:
   project: src/Bridge.AWS.sln
   verbosity: normal
-  publish_nuget: true
+  publish_nuget: false
  
 after_build:
   - ps: |
