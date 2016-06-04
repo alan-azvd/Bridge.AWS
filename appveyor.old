@@ -1,25 +1,17 @@
 ﻿version: 0.3.{build}
  
-environment:
-  semver: 0.0.0
-
 platform: Any CPU
 configuration: Release
 
 pull_requests:
   do_not_increment_build_number: true
 
-init:
-- ps: |
-      $env:semver = ${env:APPVEYOR_BUILD_VERSION}
-      $env:semver = $env:semver.Substring(0, [System.Math]::Min(20, $semver.Length))
-
 assembly_info:
   patch: true
   file: '**\AssemblyInfo.*'
-  assembly_version: '{semver}'
-  assembly_file_version: '{semver}'
-  assembly_informational_version: '{semver}'
+  assembly_version: '{version}'
+  assembly_file_version: '{version}'
+  assembly_informational_version: '{version}'
 
 artifacts:
   - path: '**\Bridge.AWS*.nupkg'
@@ -30,7 +22,13 @@ before_build:
 build:
   project: src/Bridge.AWS.sln
   verbosity: normal
-  publish_nuget: true
+  publish_nuget: false
+ 
+after_build:
+  - ps: |
+      $semver = ${env:APPVEYOR_BUILD_VERSION}
+      $semver = $semver.Substring(0, [System.Math]::Min(20, $semver.Length))
+      nuget pack src/Bridge.AWS.nuspec -version $semver
 
 deploy:
   provider: NuGet
