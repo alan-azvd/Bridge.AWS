@@ -17,18 +17,16 @@ artifacts:
   - path: '**\Bridge.AWS*.nupkg'
 
 before_build:
-  - cmd: nuget restore src/Bridge.AWS.sln
+  - ps: |
+      nuget restore src/Bridge.AWS.sln
+      $content = (Get-Content src/Bridge.AWS.nuspec) 
+      $content = $content -replace '\$version\$',${env:APPVEYOR_BUILD_VERSION}
+      $content | Out-File src/Bridge.AWS.nuspec
   
 build:
   project: src/Bridge.AWS.sln
   verbosity: normal
   publish_nuget: true
-
-after_build:
-  - ps: |
-      $content = (Get-Content src/Bridge.AWS.nuspec) 
-      $content = $content -replace '\$version\$',${env:APPVEYOR_BUILD_VERSION}
-      $content | Out-File src/Bridge.AWS.nuspec
 
 deploy:
   provider: NuGet
