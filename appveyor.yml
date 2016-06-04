@@ -19,7 +19,7 @@ build:
   publish_nuget: false
  
 after_build:
-  - cmd: nuget pack src/Bridge.AWS.csproj -version '{version}'
+  - cmd: nuget pack src/Bridge.AWS.csproj -version {version}
 
 deploy:
   provider: NuGet
