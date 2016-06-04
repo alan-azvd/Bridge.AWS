@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Bridge.AWS</id>
-    <version>0.3.2</version>
+    <version>$version$</version>
     <title>Bridge.AWS</title>
     <authors>Alan Azevedo</authors>
     <owners>Alan Azevedo</owners>
