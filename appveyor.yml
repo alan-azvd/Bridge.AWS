@@ -24,7 +24,7 @@ build:
  
 after_build:
   - ps: |
-      nuget pack src/Bridge.AWS.csproj -version '{version}'
+      nuget pack C:\projects\bridge-aws\src\Bridge.AWS.csproj -version '{version}'
 
 deploy:
   provider: NuGet
