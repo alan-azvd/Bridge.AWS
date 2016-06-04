@@ -19,7 +19,10 @@ build:
   publish_nuget: false
  
 after_build:
-  - ps: pack.ps1
+  - ps: |
+      $semver = ${env:APPVEYOR_BUILD_VERSION}
+      $semver = $semver.Substring(0, [System.Math]::Min(20, $semver.Length))
+      nuget pack src/Bridge.AWS.nuspec -version $semver -symbols
 
 deploy:
   provider: NuGet
