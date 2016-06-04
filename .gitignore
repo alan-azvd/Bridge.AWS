@@ -236,3 +236,9 @@ _Pvt_Extensions
 .fake/
 /src/nuget
 /src/packages
+/src/Bridge/www/bridge.aws/bin/bridge.aws.imports.js
+/src/Bridge/www/bridge.aws/bin/bridge.aws.imports.min.js
+/src/Bridge/www/bridge.aws/bin/bridge.aws.js
+/src/Bridge/www/bridge.aws/bin/bridge.aws.min.js
+/src/Bridge/www/bridge.aws/bin/bridge.js
+/src/Bridge/www/bridge.aws/bin/bridge.min.js

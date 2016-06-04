@@ -1,0 +1,9 @@
+﻿../lib/jsbn.js
+../lib/jsbn2.js
+../lib/sjcl.js
+../lib/sjcl.codec.bytes.js
+../lib/moment.js
+../lib/aws-cognito-sdk.js
+../lib/amazon-cognito-identity.js
+../lib/aws-sdk-2.3.11.js
+../lib/awsCognitoFacebookLogin.js

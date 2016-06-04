@@ -72,7 +72,9 @@
     <PostBuildEvent>"$(ProjectDir)bundler\node.exe" "$(ProjectDir)bundler\bundler.js" "$(ProjectDir)Bridge\www\bridge.aws\bin" "$(ProjectDir)Bridge\www\bridge.aws\bin"
 </PostBuildEvent>
   </PropertyGroup>
+  <!--
   <PropertyGroup>
     <PreBuildEvent>nuget restore $(ProjectDir)</PreBuildEvent>
   </PropertyGroup>
+  -->
 </Project>
