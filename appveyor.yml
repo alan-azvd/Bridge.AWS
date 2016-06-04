@@ -1,4 +1,4 @@
-﻿version: 0.3.30.{build}
+﻿version: 0.4.{build}
 
 platform: Any CPU
 configuration: Release
@@ -18,7 +18,7 @@ artifacts:
 
 install:
   appveyor DownloadFile https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
-  
+
 before_build:
   - ps: |
       nuget restore src/Bridge.AWS.sln
