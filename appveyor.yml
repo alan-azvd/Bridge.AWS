@@ -16,7 +16,7 @@ configuration: Release
  
 build:
   project: src/Bridge.AWS.sln
-  verbosity: detailed
+  verbosity: normal
   publish_nuget: true
  
 before_build:
