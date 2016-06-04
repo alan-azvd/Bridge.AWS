@@ -2,11 +2,14 @@
 <package >
   <metadata>
     <id>Bridge.AWS</id>
-    <version>0.3.0</version>
+    <version>0.3.2</version>
     <title>Bridge.AWS</title>
     <authors>Alan Azevedo</authors>
     <owners>Alan Azevedo</owners>
+    <projectUrl>https://github.com/alan-azvd/Bridge.AWS</projectUrl>
+    <licenseUrl>https://github.com/alan-azvd/Bridge.AWS/blob/master/LICENSE</licenseUrl>
     <description>A Bridge.Net / AWS SDK for JavaScript integration library</description>
     <copyright>Copyright 2016</copyright>
+    <tags>C# Javascript Bridge.Net AWS SDK</tags>
   </metadata>
 </package>
