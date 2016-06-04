@@ -20,12 +20,11 @@ before_build:
 build:
   project: src/Bridge.AWS.sln
   verbosity: normal
-  publish_nuget: true
+  publish_nuget: false
  
 after_build:
   - ps: |
-      $semver = ${env:APPVEYOR_BUILD_VERSION}
-      nuget pack src/Bridge.AWS.csproj -version $semver
+      nuget pack src/Bridge.AWS.csproj -version '{version}'
 
 deploy:
   provider: NuGet
