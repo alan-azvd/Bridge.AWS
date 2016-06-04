@@ -1,4 +1,4 @@
-﻿version: 0.3.{build}
+﻿version: 0.3.30.{build}
  
 environment:
   semver: '0.0.0'
@@ -13,7 +13,7 @@ init:
 - ps: |
       $env:semver = ${env:APPVEYOR_BUILD_VERSION}
       $env:semver = $env:semver.Substring(0, [System.Math]::Min(20, $semver.Length))
-      echo %$env:semver%
+      echo ${env:semver}
 
 assembly_info:
   patch: true
