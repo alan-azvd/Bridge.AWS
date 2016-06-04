@@ -5,7 +5,7 @@ pull_requests:
 
 assembly_info:
   patch: true
-  file: AssemblyInfo.cs
+  file: '**\AssemblyInfo.*'
   assembly_version: '{version}'
   assembly_file_version: '{version}'
   assembly_informational_version: '{version}'
@@ -20,15 +20,11 @@ before_build:
 build:
   project: src/Bridge.AWS.sln
   verbosity: normal
-  publish_nuget: false
- 
-after_build:
-  - ps: |
-      nuget pack C:\projects\bridge-aws\src\Bridge.AWS.csproj -version '{version}'
+  publish_nuget: true
 
 deploy:
   provider: NuGet
   api_key:
     secure: WrL2uPCxsKi6WaC+BqV9F6NzgFqtc8P9rtTOrTmcNtVg8YMbbniVxWglwGau0byD
-  skip_symbols: false
+  skip_symbols: true
   artifact: /.*\.nupkg/
