@@ -20,7 +20,7 @@ build:
   publish_nuget: true
  
 before_build:
-  - nuget restore
+  - nuget restore src/Bridge.AWS.csproj
  
 deploy:
   provider: NuGet
