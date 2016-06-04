@@ -13,15 +13,20 @@ assembly_info:
 platform: Any CPU
  
 configuration: Release
- 
+
+before_build:
+  - nuget restore src/Bridge.AWS.sln 
+
 build:
   project: src/Bridge.AWS.sln
   verbosity: normal
-  publish_nuget: true
+  publish_nuget: false
  
-before_build:
-  - nuget restore src/Bridge.AWS.sln
- 
+after_build:
+  - ps: |
+      $semver = ${env:APPVEYOR_BUILD_VERSION}
+      nuget pack src/Bridge.AWS.nuspec -version $semver -symbols
+
 deploy:
   provider: NuGet
   api_key:
