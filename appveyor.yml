@@ -19,7 +19,7 @@ build:
   publish_nuget: false
  
 after_build:
-  - ps: "Write-Host \"Setting .nuspec version tag to {version}\"\n\n$content = (Get-Content src/Bridge.AWS.nuspec) \n$content = $content -replace '\\$version\\$',{version}\n\n$content | Out-File src/Bridge.AWS.nuspec\n\nnuget pack src/Bridge.AWS.csproj"
+  - ps: pack.ps1
 
 deploy:
   provider: NuGet
