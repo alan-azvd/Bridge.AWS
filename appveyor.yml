@@ -24,7 +24,7 @@ build:
   verbosity: normal
   publish_nuget: true
 
-after_test:
+after_build:
   - ps: |
       $content = (Get-Content src/Bridge.AWS.nuspec) 
       $content = $content -replace '\$version\$',${env:APPVEYOR_BUILD_VERSION}
