@@ -15,12 +15,12 @@ platform: Any CPU
 configuration: Release
  
 build:
-  project: RandomUser.sln
+  project: src/Bridge.AWS.sln
   verbosity: detailed
   publish_nuget: true
  
 before_build:
-  - nuget restore src/Bridge.AWS.csproj
+  - nuget restore
  
 deploy:
   provider: NuGet
