@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Bridge.AWS</id>
+    <version>0.3.0</version>
+    <title>Bridge.AWS</title>
+    <authors>Alan Azevedo</authors>
+    <owners>Alan Azevedo</owners>
+    <description>A Bridge.Net / AWS SDK for JavaScript integration library</description>
+    <copyright>Copyright 2016</copyright>
+  </metadata>
+</package>

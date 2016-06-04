@@ -1,0 +1,6 @@
+{
+  "output": "Bridge/www/bridge.aws/bin",
+  "fileName": "bridge.aws.js",
+  "outputBy": "Project",
+  "preserveMemberCase": true
+}
