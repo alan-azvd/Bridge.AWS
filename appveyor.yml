@@ -16,6 +16,9 @@ assembly_info:
 artifacts:
   - path: '**\Bridge.AWS*.nupkg'
 
+install:
+  appveyor DownloadFile https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
+  
 before_build:
   - ps: |
       nuget restore src/Bridge.AWS.sln
