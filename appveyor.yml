@@ -6,17 +6,12 @@ configuration: Release
 pull_requests:
   do_not_increment_build_number: true
 
-init:
-- ps: |
-      $env:semver = "${env:APPVEYOR_BUILD_VERSION}"
-      Update-AppveyorBuild -Version $env:semver
-
 assembly_info:
   patch: true
   file: '**\AssemblyInfo.*'
-  assembly_version: '$(semver)'
-  assembly_file_version: '$(semver)'
-  assembly_informational_version: '$(semver)'
+  assembly_version: '{version}'
+  assembly_file_version: '{version}'
+  assembly_informational_version: '{version}'
 
 artifacts:
   - path: '**\Bridge.AWS*.nupkg'
@@ -28,6 +23,12 @@ build:
   project: src/Bridge.AWS.sln
   verbosity: normal
   publish_nuget: true
+
+after_test:
+  - ps: |
+      $content = (Get-Content src/Bridge.AWS.nuspec) 
+      $content = $content -replace '\$version\$',${env:APPVEYOR_BUILD_VERSION}
+      $content | Out-File src/Bridge.AWS.nuspec
 
 deploy:
   provider: NuGet
