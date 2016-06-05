@@ -1,4 +1,4 @@
-﻿var awsCognitoFacebookLogin = function (CognitoLoginCallBack) {
+﻿var awsCognitoFacebookLogin = function (identityPoolId, CognitoLoginCallBack) {
     
     FB.getLoginStatus(function (response) {
         if (response.status === 'connected') {
@@ -6,7 +6,7 @@
             
             // Add the Facebook access token to the Cognito credentials login map.
             AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-                IdentityPoolId: 'us-east-1:dd929e7c-7137-4cb7-99d7-df0eb1fd57d6',
+                IdentityPoolId: identityPoolId,
                 Logins: {
                     'graph.facebook.com': response.authResponse.accessToken
                 }
@@ -21,7 +21,7 @@
 
                     // Add the Facebook access token to the Cognito credentials login map.
                     AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-                        IdentityPoolId: 'us-east-1:dd929e7c-7137-4cb7-99d7-df0eb1fd57d6',
+                        IdentityPoolId: identityPoolId,
                         Logins: {
                             'graph.facebook.com': response.authResponse.accessToken
                         }
