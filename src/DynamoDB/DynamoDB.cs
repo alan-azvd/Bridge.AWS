@@ -49,7 +49,6 @@ namespace Bridge.AWS.DynamoDB
         public Object stack;
     }
 
-    [External]
     [ObjectLiteral]
     public class ScanParams
     {
@@ -69,7 +68,6 @@ namespace Bridge.AWS.DynamoDB
         public IEnumerable<dynamic> Items;
     }
 
-    [External]
     [ObjectLiteral]
     public class GetParams
     {
@@ -89,7 +87,6 @@ namespace Bridge.AWS.DynamoDB
         public dynamic Item;
     }
 
-    [External]
     [ObjectLiteral]
     public class UpdateParams
     {
@@ -114,7 +111,6 @@ namespace Bridge.AWS.DynamoDB
         public String ReturnValues { get; set; }
     }
 
-    [External]
     [ObjectLiteral]
     public class ItemParams
     {
@@ -146,14 +142,15 @@ namespace Bridge.AWS.DynamoDB
     [ObjectLiteral]
     public class DynamoItem
     {
+        [Name("S")]
         [FieldProperty]
         public String S { get; set; }
 
+        [Name("N")]
         [FieldProperty]
         public String N { get; set; }
     }
 
-    [External]
     [ObjectLiteral]
     public class DeleteParams
     {
